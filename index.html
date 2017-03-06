@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html ng-app="taskImg">
+	<head>
+		<title>img</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+		<script type="text/javascript" src="lib/angular.min.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="js/main_controller.js"></script>
+		<script type="text/javascript" src="lib/jQuery.js"></script>
+		<script type="text/javascript" src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	   	<meta charset="utf-8">
+	</head>
+	<body ng-controller="MainController">
+		<div class="header-mg">
+			<div class="container container-new">
+				<span class="mg-1"><u>Marina Gernyak</u></span>
+				<span class="mg-2">MG</span>
+			</div>
+		</div>
+		<div class="container container-new-2">
+			<h1 class="text-center">Давай найдем картинку</h1>
+			<div class="row">
+				<div class="col-md-9">
+					<div class="input-group">
+					  <span class="input-group-addon" id="basic-addon1">#</span>
+					  <input type="text" class="form-control" placeholder="Введите список тэгов через запятую '#..., #..., #...'" aria-describedby="basic-addon1">
+					</div>
+				</div>
+				<div class="col-md-3">
+					<button type="button" class="btn btn-primary" style="background: black !important; width: 100%">Поиск</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+					<div class="boxShadowClass">
+						<div class="img-block"></div>
+						<p class="stl-title-img">Titile</p>
+					</div>
+				</div>
+				
+				<div class="col-md-3">
+					<div class="boxShadowClass">
+						<div class="img-block"></div>
+						<p class="stl-title-img">Titile</p>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="boxShadowClass">
+						<div class="img-block"></div>
+						<p class="stl-title-img">Titile</p>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="boxShadowClass">
+						<div class="img-block"></div>
+						<p class="stl-title-img">Titile</p>
+					</div>
+				</div>
+			</div>
+			
+			
+
+			<!-- pagination -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="text-center" ng-hide="linkUrl2 == 1">
+						<nav aria-label="...">
+							<ul class="pagination">
+								<li ng-class="{'disabled': currentPage==1}" ng-click="goTo(currentPage-1)"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+								<li ng-repeat="item in pagination(linkUrl2) track by $index" ng-class="{'active': currentPage == $index +1 }"><a href="#" ng-click="goTo($index+1)" >{{$index + 1}} <span class="sr-only">(current)</span></a></li>
+							    <li ng-click="goTo(currentPage+1)" ng-class="{'disabled': currentPage==linkUrl2}"><a href="#" aria-label="Previous"><span aria-hidden="true">&raquo;</span></a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+			
+			<!-- pagination -->
+	</body>
+</html>
+
+
+<!-- У Flickr (flickr.com) в API есть метод для поиска изображений.
+Нужно написать простейшую обертку для поиска Flickr используя их API (достаточно поддерживать только полнотекстовый поиск и, при желании, поиск по тегам).
+Обертка должна представлять собой RoR проект, содержащий
+форму поиска и отображающий результаты в виде списка превью изображений.
+Результаты - найденные по запросу картинки. 
+По клику на превью должна отображаться полная картинка и meta-data из API.
+Функционал должен быть покрыт тестами (RSpec и что ещё вы посчитаете нужны).
+Никаких более конкретных требований к функционалу нет, поэтому во всех спорных вопросах поступайте на своё усмотрение
+Выполнять тестовое в отдельном git-репозитории.
+После выполнения задеплоить на Heroku.
+UI не обязан быть превосходным. -->
