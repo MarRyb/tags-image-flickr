@@ -24,58 +24,46 @@
 				<div class="col-md-9">
 					<div class="input-group">
 					  <span class="input-group-addon" id="basic-addon1">#</span>
-					  <input type="text" class="form-control" placeholder="Введите список тэгов через запятую '#..., #..., #...'" aria-describedby="basic-addon1">
+					  <input type="text" class="form-control" ng-model="tags" placeholder="Введите список тэгов через запятую '#..., #..., #...'" aria-describedby="basic-addon1">
 					</div>
 				</div>
 				<div class="col-md-3">
-					<button type="button" class="btn btn-primary" style="background: black !important; width: 100%">Поиск</button>
+					<button type="button" ng-click="searchImg()" class="btn btn-primary" style="background: black !important; width: 100%">Поиск</button>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-3" ng-repeat="item in img">
 					<div class="boxShadowClass">
-						<div class="img-block"></div>
-						<p class="stl-title-img">Titile</p>
-					</div>
-				</div>
-				
-				<div class="col-md-3">
-					<div class="boxShadowClass">
-						<div class="img-block"></div>
-						<p class="stl-title-img">Titile</p>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="boxShadowClass">
-						<div class="img-block"></div>
-						<p class="stl-title-img">Titile</p>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="boxShadowClass">
-						<div class="img-block"></div>
-						<p class="stl-title-img">Titile</p>
+						<div class="img-block">
+							<img ng-src="{{ImgUrl(item)}}">
+						</div>
+						<p class="stl-title-img">{{item.title}}</p>
 					</div>
 				</div>
 			</div>
 			
-			
-
 			<!-- pagination -->
 			<div class="row">
 				<div class="col-md-12">
 					<div class="text-center" ng-hide="linkUrl2 == 1">
 						<nav aria-label="...">
 							<ul class="pagination">
-								<li ng-class="{'disabled': currentPage==1}" ng-click="goTo(currentPage-1)"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-								<li ng-repeat="item in pagination(linkUrl2) track by $index" ng-class="{'active': currentPage == $index +1 }"><a href="#" ng-click="goTo($index+1)" >{{$index + 1}} <span class="sr-only">(current)</span></a></li>
-							    <li ng-click="goTo(currentPage+1)" ng-class="{'disabled': currentPage==linkUrl2}"><a href="#" aria-label="Previous"><span aria-hidden="true">&raquo;</span></a></li>
+							    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+							    <li><a href="#">1</a></li>
+							    <li><a href="#">2</a></li>
+							    <li><a href="#">3</a></li>
+							    <li><a href="#">4</a></li>
+							    <li class="active"><a href="#" style="background: black!important;">5</a></li>
+							    <li><a href="#">6</a></li>
+							    <li><a href="#">7</a></li>
+							    <li><a href="#">8</a></li>
+							    <li><a href="#">9</a></li>
+							    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&raquo;</span></a></li>
 							</ul>
 						</nav>
 					</div>
 				</div>
 			</div>
-			
 		</div>
 			
 			<!-- pagination -->
